@@ -33,7 +33,7 @@ button:hover {
 
 #label-container {
     position: absolute;
-    top: calc(20px + 80vw);
+    top: calc(10% + 80vw);
     left: 50%;
     right: 50%;
     transform: translateX(-50%);
@@ -41,11 +41,11 @@ button:hover {
     max-height: 250px;
     overflow-y: auto;
     background-color: forestgreen;
-    border: 1px solid #ccc;
+    border: 10px solid #ccc;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0);
     padding: 10px;
     border-radius: 14px;
-    font-size: 18px;
+    font-size: 35px;
     z-index: 999;
 }
 
