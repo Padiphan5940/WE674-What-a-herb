@@ -84,3 +84,16 @@ async function predict() {
 
     }
 }
+
+// Handle file upload and predict
+async function uploadAndPredict(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    const img = document.createElement("img");
+    img.src = URL.createObjectURL(file);
+    img.onload = async () => {
+        await predict(img);
+        URL.revokeObjectURL(img.src); // Release memory
+    };
+}
