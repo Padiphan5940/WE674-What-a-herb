@@ -44,8 +44,43 @@ async function predict() {
     // predict can take in an image, video or canvas html element
     const prediction = await model.predict(webcam.canvas);
     for (let i = 0; i < maxPredictions; i++) {
-        const classPrediction =
-            prediction[i].className + ": " + prediction[i].probability.toFixed(2);
-        labelContainer.childNodes[i].innerHTML = classPrediction;
+        const className = prediction[i].className;
+        const probability = prediction[i].probability;
+
+        const predictionContainer = document.createElement("div");
+        predictionContainer.class = "progress-bar-container"
+
+        const label = document.createElement("div");
+        label.textContent = className;
+        label.style.fontWeight = "bold";
+        label.style.marginBottom = "10px"
+
+        const progressBar = document.createElement("div");
+        progressBar.className = "progress-bar"
+
+        const progressBarFill = document.createElement("div");
+        progressBarFill.className = "progress-bar-fill"
+        progressBarFill.style.width = (probability * 100).toFixed(2) + "%";
+
+        if (className === "Chaplu,Lime_leaf,Magrud,Plu,Saranae,Yanang") {
+            progressBarFill.style.backgroundColor = "green";
+        } else {
+            progressBarFill.style.backgroundColor = "red";
+        }
+
+        //appended
+        progressBar.appendChild(progressBarFill);
+        const progressText = document.createElement("div");
+        progressText.className = "progress-text ";
+        progressText.textContent = (probability * 100).toFixed(2) + "%";
+
+        predictionContainer.appendChild(label);
+        predictionContainer.appendChild(progressBar);
+        predictionContainer.appendChild(progressText);
+
+
+        labelContainer.appendChild(predictionContainer);
+
+
     }
 }

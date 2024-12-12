@@ -73,7 +73,7 @@ button:hover {
     position: relative;
 }
 
-.progress-bar-text {
+.progressText {
     font-size: 18px;
     white-space: nowrap;
     width: 50px;
