@@ -30,7 +30,7 @@
             </div>
         </header>
         <div class="mdl-layout__drawer">
-            <span class="mdl-layout-title">Title</span>
+            <span class="mdl-layout-title">What a herb?</span>
             <nav class="mdl-navigation">
 
             </nav>
@@ -41,7 +41,9 @@
                 <button type="button" onclick="init()">Start</button>
                 <div id="webcam-container"></div>
                 <div id="label-container"></div>
-                <input type="file" id="upload" accept="image/*" onchange="uploadAndPredict(event)">
+                <!-- File Upload as Button -->
+                <input type="file" id="upload" accept="image/*" onchange="uploadAndPredict(event)" hidden>
+                <label for="upload" class="upload-button">Upload Image</label>
                 <!-- Your content goes here -->
 
             </div>

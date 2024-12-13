@@ -1,3 +1,48 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+
+    /* Background properties */
+    background-image: url('./image/BG_WhatAHerbs.png');
+    /* Correct syntax */
+    background-size: cover;
+    /* Scale the background to cover the entire container */
+    background-position: center;
+    /* Center the background */
+    background-repeat: no-repeat;
+    /* Avoid repeating the background */
+    height: 100vh;
+    /* Make it cover the full viewport height */
+}
+
+/* For a specific container */
+.responsive-background {
+    background-image: url('./image/BG_WhatAHerbs.png');
+    /* Correct syntax */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    /* Make it span the full width */
+    height: 100vh;
+    /* Make it span the full viewport height */
+}
+
+@media (max-width: 768px) {
+    .responsive-background {
+        background-position: top;
+        /* Adjust the position for smaller screens */
+    }
+}
+
+@media (min-width: 1024px) {
+    .responsive-background {
+        background-attachment: fixed;
+        /* Parallax effect for larger screens */
+    }
+}
+
 button {
     position: fixed;
     bottom: 0;
@@ -6,7 +51,7 @@ button {
     height: 50;
     background-color: darkseagreen;
     color: #000;
-    font-size: 5rem;
+    font-size: 3rem;
     font-weight: bold;
     cursor: pointer;
     z-index: 1000;
@@ -14,6 +59,39 @@ button {
 
 button:hover {
     background-color: darkseagreen;
+}
+
+.upload-button {
+    position: fixed;
+    bottom: 60px;
+    /* 10px above the "Start" button */
+    left: 0;
+    width: 100vw;
+    height: 50px;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #000;
+    background-color: #28a745;
+    /* Green */
+    text-align: center;
+    cursor: pointer;
+    z-index: 1001;
+    /* Higher z-index to sit above the "Start" button */
+    border: none;
+    border-radius: 0;
+    /* Remove rounding for full-width button */
+
+    /* Center text using Flexbox */
+    display: flex;
+    justify-content: center;
+    /* Horizontal centering */
+    align-items: center;
+    /* Vertical centering */
+}
+
+.upload-button:hover {
+    background-color: #218838;
+    /* Darker green on hover */
 }
 
 #webcam-container {
