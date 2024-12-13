@@ -43,6 +43,9 @@ async function loop() {
 async function predict() {
     // predict can take in an image, video or canvas html element
     const prediction = await model.predict(webcam.canvas);
+
+    labelContainer.innerHTML = "";
+
     for (let i = 0; i < maxPredictions; i++) {
         const className = prediction[i].className;
         const probability = prediction[i].probability;
@@ -71,7 +74,7 @@ async function predict() {
         //appended
         progressBar.appendChild(progressBarFill);
         const progressText = document.createElement("div");
-        progressText.className = "progress-text ";
+        progressText.className = "progress-text";
         progressText.textContent = (probability * 100).toFixed(2) + "%";
 
         predictionContainer.appendChild(label);
