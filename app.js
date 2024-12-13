@@ -41,6 +41,7 @@ async function loop() {
 
 // run the webcam image through the image model
 async function predict() {
+    labelContainer.innerHTML = "";
     // predict can take in an image, video or canvas html element
     const prediction = await model.predict(webcam.canvas);
     for (let i = 0; i < maxPredictions; i++) {
@@ -62,7 +63,7 @@ async function predict() {
         progressBarFill.className = "progress-bar-fill"
         progressBarFill.style.width = (probability * 100).toFixed(2) + "%";
 
-        if (className === "Chaplu,Lime_leaf,Magrud,Plu,Saranae,Yanang") {
+        if (className === "Chaplu", "Lime leaf", "Magrud", "Plu", "Saranae", "Yanang") {
             progressBarFill.style.backgroundColor = "green";
         } else {
             progressBarFill.style.backgroundColor = "red";
